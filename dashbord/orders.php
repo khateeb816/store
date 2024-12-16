@@ -39,7 +39,7 @@ $Sno = $offset + 1;
                                             <th scope="col">Product Name</th>
                                             <th scope="col">Quantity</th>
                                             <th scope="col">Color</th>
-                                            <th scope="col">Size</th>
+                                            <th scope="col">Sizes</th>
                                             <th scope="col">Status</th>
                                             <th scope="col">Add Time</th>
                                         </tr>
