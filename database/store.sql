@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2024 at 10:29 AM
+-- Generation Time: Dec 17, 2024 at 11:57 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -89,6 +89,41 @@ INSERT INTO `categories` (`id`, `name`, `add_time`, `image_path`, `status_of`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `live_messages`
+--
+
+CREATE TABLE `live_messages` (
+  `id` int(50) NOT NULL,
+  `user_id` int(50) NOT NULL,
+  `message` varchar(500) NOT NULL,
+  `time` varchar(255) NOT NULL DEFAULT current_timestamp(),
+  `role` int(11) NOT NULL DEFAULT 2
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `live_messages`
+--
+
+INSERT INTO `live_messages` (`id`, `user_id`, `message`, `time`, `role`) VALUES
+(1, 1, 'Hi this is test', 'current_timestamp()', 2),
+(2, 1, 'hi this is admin', 'current_timestamp()', 1),
+(3, 1, 'hi this is at 1:46', 'current_timestamp()', 2),
+(4, 1, 'this is test', '2024-12-17 13:54:34', 2),
+(5, 1, 'this is user message', '2024-12-17 13:55:48', 2),
+(6, 1, 'its 2:12\r\n', '2024-12-17 14:12:43', 2),
+(7, 1, 'this is latest msg\r\n', '2024-12-17 14:14:51', 2),
+(8, 1, 'hi', '2024-12-17 14:16:18', 2),
+(9, 1, 'hey this is test', '2024-12-17 14:37:25', 2),
+(10, 1, 'hi', '2024-12-17 15:40:21', 1),
+(11, 1, 'hello', '2024-12-17 15:47:57', 1),
+(12, 1, 'hi', '2024-12-17 15:48:41', 2),
+(13, 1, 'helo', '2024-12-17 15:48:53', 1),
+(14, 5, 'hi this is test', '2024-12-17 15:52:16', 2),
+(15, 5, 'this is reply', '2024-12-17 15:54:19', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `messages`
 --
 
@@ -107,7 +142,7 @@ CREATE TABLE `messages` (
 --
 
 INSERT INTO `messages` (`id`, `name`, `email`, `subject`, `message`, `user_id`, `status`) VALUES
-(1, 'Muhammad Khateeb', 'khateebfareed114582@gmail.com', 'test', 'test', 1, 'unread');
+(1, 'Muhammad Khateeb', 'khateebfareed114582@gmail.com', 'test', 'test', 1, 'read');
 
 -- --------------------------------------------------------
 
@@ -223,7 +258,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `f_name`, `l_name`, `email`, `number`, `role`, `password`) VALUES
 (1, 'Muhammad', 'hamza', 'khateebfareed114582@gmail.com', '03481156978', '1', '$2y$10$RJh2xFNuj.H.Jak17P4kVu1H7Hy3uQfgK86IRDvg6f6LmiLEITrf6'),
 (3, 'Muhammad', 'hamza', 'khateebfareed114582@gmail.com', '03481156978', '', '$2y$10$ZJUGy5PHq/t.eL3/Rin5leGex79um0jqMruYNF4TZer8flpWUnPO2'),
-(4, 'Muhammad', 'Khateeb', 'khateebfareed@gmail.com', '07354678688', '', '$2y$10$8LjNWh3mA6VaEIna/jabcuQUEg2x9A0BAgIY61cxGaaBZFgKdn98G');
+(4, 'Muhammad', 'Khateeb', 'khateebfareed@gmail.com', '07354678688', '', '$2y$10$8LjNWh3mA6VaEIna/jabcuQUEg2x9A0BAgIY61cxGaaBZFgKdn98G'),
+(5, 'Muhammad', 'Khateeb', 'cghf@hn.com', '07354678688', '', '$2y$10$qu/BqJjyw6VPkKHVs0RPUeWHSqpN39ZVS3wVq2cy/Lc4RYlfZPGUG');
 
 -- --------------------------------------------------------
 
@@ -287,6 +323,12 @@ ALTER TABLE `categories`
   ADD UNIQUE KEY `name` (`name`);
 
 --
+-- Indexes for table `live_messages`
+--
+ALTER TABLE `live_messages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `messages`
 --
 ALTER TABLE `messages`
@@ -345,6 +387,12 @@ ALTER TABLE `categories`
   MODIFY `id` int(110) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
+-- AUTO_INCREMENT for table `live_messages`
+--
+ALTER TABLE `live_messages`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
@@ -366,7 +414,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `vouchers`

@@ -23,6 +23,7 @@ $user = $sqlResult -> fetch_assoc();
             <a href="brands.php" class="nav-item nav-link <?php echo (basename($_SERVER['PHP_SELF']) == "brands.php" || basename($_SERVER['PHP_SELF']) == "update_brand.php" ?'active':'');  ?>""><i class="fa fa-table me-2"></i>Brands</a>
             <a href="orders.php" class="nav-item nav-link <?php echo (basename($_SERVER['PHP_SELF']) == "orders.php" ?'active':'');  ?>"><i class="fa fa-chart-bar me-2"></i>Orders</a>
             <a href="messages.php" class="nav-item nav-link <?php echo (basename($_SERVER['PHP_SELF']) == "messages.php" ?'active':'');  ?>"><i class="fa fa-chart-bar me-2"></i>Messages</a>
+            <a href="live_chat.php" class="nav-item nav-link <?php echo (basename($_SERVER['PHP_SELF']) == "live_chat.php" ?'active':'');  ?>"><i class="fa fa-chart-bar me-2"></i>Live Chat</a>
         </div>
     </nav>
 </div>
